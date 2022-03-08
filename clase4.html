@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>clase 2 | email-send</title>
+    <title>clase 4 | edit-account</title>
     <style>
         :root {
             /* colors  */
@@ -41,15 +40,14 @@
             --mb-1-6: 1.6rem;
             --mb-2-4: 2.4rem;
             --mb-4: 4rem
-        }
 
+        }
         /* base  */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             font-size: 62.5%;
             scroll-behavior: smooth;
@@ -59,69 +57,64 @@
             font-size: var(--normal-font-size);
             font-family: var(--body-font);
         }
-
         h1,
         h2,
         h3 {
             font-weight: var(--font-bold);
             color: var(--black);
         }
-
         .login {
             display: grid;
-            place-items: center;
+            justify-items: center;
             width: 100%;
             height: 100vh;
+            margin-top: 2.4rem;
+            padding: 2.4rem 1.6rem;
         }
-
         .form__container {
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            justify-items: center;
+            display: flex;
+            flex-direction: column;
             width: 300px;
         }
-
         .title {
-            margin-bottom: var(--mb-0-8);
-            font-size: var(--normal-font-size);
-        }
-
-        .subtitle {
             margin-bottom: var(--mb-4);
             font-size: var(--normal-font-size);
-            font-weight: var(--font-light);
-            color: var(--dark);
-            text-align: center;
         }
-
-        .email-img {
-            display: grid;
-            place-items: center;
-            width: 120px;
-            height: 120px;
-            margin-bottom: var(--mb-2-4);
-            border-radius: 50%;
-            background-color: var(--text-input-field);
+        .form {
+            display: flex;
+            flex-direction: column;
         }
-
-        .email-img img {
-            width: 60%;
-        }
-
         .logo {
-            width: 50%;
+            width: 56%;
             justify-self: center;
             margin-bottom: var(--mb-4);
         }
-
-        @media screen and (min-width: 768px) {
+        @media  screen  and (min-width: 768px){
             .logo {
                 display: none;
             }
         }
-
-        .primary-button {
+        .label {
+            margin-bottom: var(--mb-0-8);
+            font-size: var(--small-font-size);
+            font-weight: var(--font-bold);
+        }
+        .input {
             width: 100%;
+            height: 32px;
+            margin-bottom: var(--mb-1-6);
+            padding-left: .8rem;
+            border-radius: .8rem;
+            border: 0;
+            outline: 0;
+            background-color: var(--text-input-field);
+        }
+        .input-name,
+        .input-email,
+        .input-password {
+            margin-bottom: var(--mb-2-4);
+        }
+        .primary-button {
             height: 44px;
             border-radius: .8rem;
             border: 0;
@@ -131,44 +124,40 @@
             background-color: var(--first-color);
             color: var(--white);
         }
-
         .primary-button:hover {
             transition: .3s;
             cursor: pointer;
             background-color: var(--first-color-alt);
         }
-        .resend {
-            margin-top: var(--mb-4);
-            font-size: var(--smaller-font-size);
+        .save-button {
+            position: relative;
+            top: 16rem;
+            width: 100%;
         }
-        .resend a {
-            text-decoration: none;
-            color: var(--first-color);
+        @media screen and (min-width: 768px){
+            .form__container {
+                justify-content: center;
+            }
+            .save-button {
+                top: 3.6rem;
+            }
         }
     </style>
 </head>
-
 <body>
     <div class="login">
         <div class="form__container">
-            <img src="./assets/img/logo_yard_sale.svg" alt="logo" class="logo">
-            <h1 class="title">Email has been sent!</h1>
-            <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
-
-            <div class="email-img">
-                <img src="./assets/icons/email.svg" alt="email-send" class="email-logo">
-            </div>
-
-            <button class="primary-button login-button">
-                Login
-            </button>
-
-            <p class="resend">
-                <span> Didn't receive the email?</span>
-                <a href="#">Resend</a>
-            </p>
+            <h1 class="title">My account</h1>
+            <form action="/" class="form">
+                <label for="name" class="label">Name</label>
+                <input type="text" class="input input-name" id="name" placeholder="Jhon Eduard">
+                <label for="email" class="label">Email address</label>
+                <input type="email" class="input input-email" id="email" placeholder="youremail@mail.com">
+                <label for="password" class="label">Password</label>
+                <input type="password" class="input input-password" id="password" placeholder="*********">
+            </form>
+            <button class="primary-button save-button">Save</button>
         </div>
     </div>
 </body>
-
 </html>
