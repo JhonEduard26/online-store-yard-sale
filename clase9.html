@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>clase 9 | my-order</title>
+    <style>
+        :root {
+            /* colors  */
+            --very-light-color: #727272;
+            --white: #fff;
+            --text-input-field: #f7f7f7;
+            --black: #000;
+            --dark: #232830;
+            --first-color: #3a6aff;
+            --first-color-alt: #0a2be6;
+
+            /* font & typography  */
+            --body-font: 'Quicksand', sans-serif;
+            --h1-font-size: 1.8rem;
+            --h2-font-size: 1.6rem;
+            --h3-font-size: 1.4rem;
+            --normal-font-size: 1.6rem;
+            --small-font-size: 1.4rem;
+            --smaller-font-size: 1.2rem;
+
+            /* font weight */
+            --font-light: 300;
+            --font-medium: 500;
+            --font-bold: 700;
+
+            /* margins bottom*/
+            --mb-0-4: .4rem;
+            --mb-0-8: .8rem;
+            --mb-1-2: 1.2rem;
+            --mb-1-6: 1.6rem;
+            --mb-2-4: 2.4rem;
+            --mb-4: 4rem
+        }
+
+        /* base  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: var(--normal-font-size);
+            font-family: var(--body-font);
+        }
+
+        .my-order {
+            width: 100%;
+            height: 100vh;
+            padding: 1.2rem;
+        }
+
+        .order-title {
+            display: none;
+            margin-bottom: var(--mb-2-4);
+            font-size: var(--normal-font-size);
+        }
+
+        .order-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--mb-1-6);
+            padding: 1.2rem;
+            border-radius: 12px;
+            background-color: var(--text-input-field);
+        }
+
+        .order-date,
+        .order-price,
+        .product-price {
+            font-size: var(--small-font-size);
+            font-weight: var(--font-bold);
+        }
+
+        .order-quantity,
+        .product-name {
+            font-size: var(--smaller-font-size);
+            color: var(--very-light-color);
+        }
+        .product-name {
+            grid-column: 2 / 4;
+            justify-self: start;
+            margin-left: .4rem;
+        }
+
+        .order-product {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            place-items: center;
+            margin-bottom: var(--mb-1-6);
+            padding-right: 1.2rem;
+        }
+
+        .order-product img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .product-price {
+            grid-column: 4 / 5;
+            justify-self: end;
+        }
+
+        @media screen and (min-width: 768px){
+            .my-order {
+                display: grid;
+                place-items: center;
+            }
+            .order-title {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="my-order">
+        <div class="order-container">
+            <h3 class="order-title">My order</h3>
+
+            <div class="order-details">
+                <div>
+                    <p class="order-date">04.25.2021</p>
+                    <p class="order-quantity">6 articles</p>
+                </div>
+                <p class="order-price">$ 560.00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+            <div class="order-product">
+                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    alt="">
+                <span class="product-name">Round shelf</span>
+                <p class="product-price">$ 120,00</p>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>
