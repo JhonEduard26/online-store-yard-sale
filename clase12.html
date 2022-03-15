@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>clase 12 | product-detail</title>
+    <style>
+        :root {
+            /* colors  */
+            --very-light-color: #727272;
+            --white: #fff;
+            --text-input-field: #f7f7f7;
+            --black: #000;
+            --dark: #232830;
+            --first-color: #3a6aff;
+            --first-color-alt: #0a2be6;
+
+            /* font & typography  */
+            --body-font: 'Quicksand', sans-serif;
+            --h1-font-size: 1.8rem;
+            --h2-font-size: 1.6rem;
+            --h3-font-size: 1.4rem;
+            --normal-font-size: 1.6rem;
+            --small-font-size: 1.4rem;
+            --smaller-font-size: 1.2rem;
+
+            /* font weight */
+            --font-light: 300;
+            --font-medium: 500;
+            --font-bold: 700;
+
+            /* margins bottom*/
+            --mb-0-4: .4rem;
+            --mb-0-8: .8rem;
+            --mb-1-2: 1.2rem;
+            --mb-1-6: 1.6rem;
+            --mb-2-4: 2.4rem;
+            --mb-4: 4rem
+        }
+
+        /* base  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: var(--normal-font-size);
+            font-family: var(--body-font);
+        }
+
+        .product-detail {
+            display: grid;
+            justify-content: center;
+            width: 100%;
+            box-shadow: 0;
+        }
+
+        .close {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            cursor: pointer;
+            padding: .4rem;
+            border: 1px solid #c7c7c7;
+            border-radius: 50%;
+            background-color: white;
+            z-index: 10;
+        }
+
+        .product-img {
+            width: 100%;
+            max-width: 540px;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            margin: 0 2.4rem;
+            margin-top: 2.4rem;
+        }
+
+        .product-price {
+            margin-bottom: var(--mb-0-4);
+            font-size: var(--small-font-size);
+            font-weight: var(--font-bold);
+        }
+
+        .product-name {
+            margin-bottom: var(--mb-1-6);
+            font-size: var(--small-font-size);
+            color: var(--dark);
+        }
+        
+        .product-description {
+            margin-bottom: var(--mb-4);
+            font-size: var(--smaller-font-size);
+            color: var(--dark);
+        }
+
+        .primary-button {
+            width: 280px;
+            height: 44px;
+            border-radius: .8rem;
+            border: 0;
+            outline: 0;
+            font-family: var(--body-font);
+            font-weight: var(--font-bold);
+            background-color: var(--first-color);
+            color: var(--white);
+        }
+
+        .primary-button:hover {
+            transition: .3s;
+            cursor: pointer;
+            background-color: var(--first-color-alt);
+        }
+
+        .add-to-cart-button {
+            align-self: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: var(--mb-2-4);
+        }
+
+        .add-to-cart-button img {
+            margin-right: .8rem;
+        }
+
+        @media screen and (min-width: 768px){
+            .product-detail {
+                position: absolute;
+                right: 0;
+                width: 360px;
+                box-shadow: -1px 1px 4px -2px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <aside class="product-detail">
+        <img class="close" src="./assets/icons/icon_close.png" alt="close">
+        <img class="product-img"
+            src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="laptop">
+
+        <div class="product-info">
+            <p class="product-price">$120,00</p>
+            <p class="product-name">Macbook pro</p>
+            <p class="product-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas error nobis
+                vitae, a dicta facere?
+            </p>
+            <button class="primary-button add-to-cart-button">
+                <img src="./assets/icons/icon_shopping_cart.svg" alt="add to cart">
+                Add to cart
+            </button>
+        </div>
+
+    </aside>
+</body>
+
+</html>
