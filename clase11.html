@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>clase 11 | navbar</title>
+    <style>
+        :root {
+            /* colors  */
+            --very-light-color: #727272;
+            --white: #fff;
+            --text-input-field: #f7f7f7;
+            --black: #000;
+            --dark: #232830;
+            --first-color: #3a6aff;
+            --first-color-alt: #0a2be6;
+
+            /* font & typography  */
+            --body-font: 'Quicksand', sans-serif;
+            --h1-font-size: 1.8rem;
+            --h2-font-size: 1.6rem;
+            --h3-font-size: 1.4rem;
+            --normal-font-size: 1.6rem;
+            --small-font-size: 1.4rem;
+            --smaller-font-size: 1.2rem;
+
+            /* font weight */
+            --font-light: 300;
+            --font-medium: 500;
+            --font-bold: 700;
+
+            /* margins bottom*/
+            --mb-0-4: .4rem;
+            --mb-0-8: .8rem;
+            --mb-1-2: 1.2rem;
+            --mb-1-6: 1.6rem;
+            --mb-2-4: 2.4rem;
+            --mb-4: 4rem
+        }
+
+        /* base  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: var(--normal-font-size);
+            font-family: var(--body-font);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.6rem;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+        }
+
+        .navbar-left ul {
+            display: none;
+            font-size: var(--small-font-size);
+        }
+
+        .navbar-email {
+            display: none;
+            font-size: var(--smaller-font-size);
+        }
+
+        .navbar-shopping-cart {
+            position: relative;
+        }
+
+        .navbar-shopping-cart div {
+            position: absolute;
+            top: -2px;
+            right: 1px;
+            width: .8rem;
+            height: .8rem;
+            font-size: 10px;
+            color: var(--white);
+        }
+
+        @media screen and (min-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .navbar-left {
+                display: flex;
+                margin-right: 2.4rem;
+            }
+
+            .logo {
+                width: 120px;
+                margin-right: 2.4rem;
+            }
+
+            .navbar-left ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .navbar-left ul li {
+                margin: 0 .4rem;
+            }
+
+            .navbar-left a {
+                padding: .4rem .8rem;
+                color: var(--very-light-color);
+            }
+
+            .navbar-left a:hover {
+                color: var(--dark);
+            }
+
+            .navbar-email {
+                display: block;
+                margin-right: .8rem;
+            }
+
+            .navbar-right ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="./assets/icons/icon_menu.svg" alt="menu" class="menu">
+
+        <div class="navbar-left">
+            <img src="./assets/img/logo_yard_sale.svg" alt="logo" class="logo">
+            <ul>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Clothes</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Furniture</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Others</a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email">youremail@mail.com</li>
+                <li class="navbar-shopping-cart">
+                    <img src="./assets/icons/icon_shopping_cart_notification.svg" alt="shopping cart"
+                        class="shopping-cart">
+                    <div>2</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>
