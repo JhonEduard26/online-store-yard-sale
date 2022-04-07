@@ -1,246 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>clase 13 | shopping-cart</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>clase 13 | ShoppingCartShoppingCart-</title>
     <style>
-        :root {
-            /* colors  */
-            --very-light-color: #727272;
-            --white: #fff;
-            --text-input-field: #f7f7f7;
-            --black: #000;
-            --dark: #232830;
-            --first-color: #3a6aff;
-            --first-color-alt: #0a2be6;
+      :root {
+        /* colors  */
+        --very-light-color: #727272;
+        --white: #fff;
+        --text-input-field: #f7f7f7;
+        --black: #000;
+        --dark: #232830;
+        --first-color: #3a6aff;
+        --first-color-alt: #0a2be6;
 
-            /* font & typography  */
-            --body-font: 'Quicksand', sans-serif;
-            --h1-font-size: 1.8rem;
-            --h2-font-size: 1.6rem;
-            --h3-font-size: 1.4rem;
-            --normal-font-size: 1.6rem;
-            --small-font-size: 1.4rem;
-            --smaller-font-size: 1.2rem;
+        /* font & typography  */
+        --body-font: 'Quicksand', sans-serif;
+        --h1-font-size: 1.8rem;
+        --h2-font-size: 1.6rem;
+        --h3-font-size: 1.4rem;
+        --normal-font-size: 1.6rem;
+        --small-font-size: 1.4rem;
+        --smaller-font-size: 1.2rem;
 
-            /* font weight */
-            --font-light: 300;
-            --font-medium: 500;
-            --font-bold: 700;
+        /* font weight */
+        --font-light: 300;
+        --font-medium: 500;
+        --font-bold: 700;
 
-            /* margins bottom*/
-            --mb-0-4: .4rem;
-            --mb-0-8: .8rem;
-            --mb-1-2: 1.2rem;
-            --mb-1-6: 1.6rem;
-            --mb-2-4: 2.4rem;
-            --mb-4: 4rem
+        /* margins bottom*/
+        --mb-0-4: 0.4rem;
+        --mb-0-8: 0.8rem;
+        --mb-1-2: 1.2rem;
+        --mb-1-6: 1.6rem;
+        --mb-2-4: 2.4rem;
+        --mb-4: 4rem;
+      }
+
+      /* base  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-size: var(--normal-font-size);
+        font-family: var(--body-font);
+      }
+
+      .ShoppingCart-product-detail {
+        display: grid;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .ShoppingCart-close {
+        display: none;
+        cursor: pointer;
+        padding: 0.4rem;
+        border: 1px solid #c7c7c7;
+        border-radius: 50%;
+        background-color: white;
+        z-index: 10;
+      }
+
+      .ShoppingCart-arrow {
+        display: none;
+      }
+
+      .ShoppingCart-order-title {
+        display: none;
+        font-size: var(--normal-font-size);
+      }
+
+      .ShoppingCart-order-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--mb-1-6);
+        padding: 2rem 1.2rem;
+        border-radius: 12px;
+        background-color: var(--text-input-field);
+      }
+
+      .ShoppingCart-order-date,
+      .ShoppingCart-order-price,
+      .ShoppingCart-product-price {
+        font-size: var(--small-font-size);
+        font-weight: var(--font-bold);
+      }
+
+      .ShoppingCart-product-name {
+        font-size: var(--smaller-font-size);
+        color: var(--very-light-color);
+      }
+
+      .ShoppingCart-product-name {
+        grid-column: 2 / 3;
+        justify-self: start;
+        margin-left: 0.4rem;
+      }
+
+      .ShoppingCart-shopping-cart {
+        display: grid;
+        grid-template-columns: auto 2fr 1fr auto;
+        column-gap: 1.6rem;
+        place-items: center;
+        margin-bottom: var(--mb-1-6);
+        padding-right: 0.4rem;
+      }
+
+      .ShoppingCart-order-container div:nth-child(2) {
+        margin-top: 2.4rem;
+      }
+
+      .ShoppingCart-title-container {
+        display: flex;
+        margin-top: 1.6rem;
+      }
+      .ShoppingCart-title-container ShoppingCart-.arrow {
+        transform: rotate(180deg);
+        cursor: pointer;
+        margin-right: 0.8rem;
+      }
+
+      .ShoppingCart-shopping-cart img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .ShoppingCart-product-price {
+        grid-column: 3 / 4;
+        justify-self: end;
+      }
+
+      .ShoppingCart-shopping-cart .ShoppingCart-shopping-close {
+        grid-column: 4 / 5;
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        border: 0;
+      }
+
+      .ShoppingCart-primary-button {
+        width: 100%;
+        height: 44px;
+        border-radius: 0.8rem;
+        border: 0;
+        outline: 0;
+        font-family: var(--body-font);
+        font-weight: var(--font-bold);
+        background-color: var(--first-color);
+        color: var(--white);
+      }
+
+      .ShoppingCart-primary-button:hover {
+        transition: 0.3s;
+        cursor: pointer;
+        background-color: var(--first-color-alt);
+      }
+
+      .ShoppingCart-checkout-button {
+        margin-bottom: var(--mb-1-6);
+      }
+
+      @media screen and (min-width: 768px) {
+        .ShoppingCart-product-detail {
+          position: absolute;
+          right: 0;
+          width: 360px;
+          box-shadow: -1px 1px 4px -2px;
         }
 
-        /* base  */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .ShoppingCart-order-title {
+          display: block;
         }
-
-        html {
-            font-size: 62.5%;
-            scroll-behavior: smooth;
+        .ShoppingCart-arrow {
+          display: inline-block;
         }
-
-        body {
-            font-size: var(--normal-font-size);
-            font-family: var(--body-font);
-        }
-
-        .product-detail {
-            display: grid;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .close {
-            display: none;
-            cursor: pointer;
-            padding: .4rem;
-            border: 1px solid #c7c7c7;
-            border-radius: 50%;
-            background-color: white;
-            z-index: 10;
-        }
-
-        .arrow {
-            display: none;
-        }
-
-        .order-title {
-            display: none;
-            font-size: var(--normal-font-size);
-        }
-
-        .order-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--mb-1-6);
-            padding: 2rem 1.2rem;
-            border-radius: 12px;
-            background-color: var(--text-input-field);
-        }
-
-        .order-date,
-        .order-price,
-        .product-price {
-            font-size: var(--small-font-size);
-            font-weight: var(--font-bold);
-        }
-
-        .product-name {
-            font-size: var(--smaller-font-size);
-            color: var(--very-light-color);
-        }
-
-        .product-name {
-            grid-column: 2 / 3;
-            justify-self: start;
-            margin-left: .4rem;
-        }
-
-        .shopping-cart {
-            display: grid;
-            grid-template-columns: auto 2fr 1fr auto;
-            column-gap: 1.6rem;
-            place-items: center;
-            margin-bottom: var(--mb-1-6);
-            padding-right: .4rem
-        }
-
-        .order-container div:nth-child(2) {
-            margin-top: 2.4rem;
-        }
-
-        .title-container {
-            display: flex;
-            margin-top: 1.6rem;
-        }
-        .title-container .arrow {
-            transform: rotate(180deg);
-            cursor: pointer;
-            margin-right: .8rem;
-        }
-
-        .shopping-cart img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, .1);
-        }
-
-        .product-price {
-            grid-column: 3 / 4;
-            justify-self: end;
-        }
-
-        .shopping-cart .shopping-close {
-            grid-column: 4 / 5;
-            cursor: pointer;
-            width: 14px;
-            height: 14px;
-            border: 0;
-        }
-
-        .primary-button {
-            width: 100%;
-            height: 44px;
-            border-radius: .8rem;
-            border: 0;
-            outline: 0;
-            font-family: var(--body-font);
-            font-weight: var(--font-bold);
-            background-color: var(--first-color);
-            color: var(--white);
-        }
-
-        .primary-button:hover {
-            transition: .3s;
-            cursor: pointer;
-            background-color: var(--first-color-alt);
-        }
-
-        .checkout-button {
-            margin-bottom: var(--mb-1-6);
-        }
-
-        @media screen and (min-width: 768px) {
-            .product-detail {
-                position: absolute;
-                right: 0;
-                width: 360px;
-                box-shadow: -1px 1px 4px -2px;
-            }
-
-            .order-title {
-                display: block;
-            }
-            .arrow {
-                display: inline-block;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <aside class="product-detail">
-
-        <div class="order-container">
-            <div class="title-container">
-                <img class="arrow" src="./assets/icons/flechita.svg" alt="arrow">
-                <h3 class="order-title">Shopping cart</h3>
-            </div>
-
-            <div class="shopping-cart">
-                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="">
-                <span class="product-name">Macbook Air</span>
-                <p class="product-price">$ 120,00</p>
-                <img class="shopping-close" src="./assets/icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="shopping-cart">
-                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="">
-                <span class="product-name">Macbook Air</span>
-                <p class="product-price">$ 120,00</p>
-                <img class="shopping-close" src="./assets/icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="shopping-cart">
-                <img src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                    alt="">
-                <span class="product-name">Macbook Air</span>
-                <p class="product-price">$ 120,00</p>
-                <img class="shopping-close" src="./assets/icons/icon_close.png" alt="close">
-            </div>
-
-            <div class="order-details">
-                <div>
-                    <p class="order-date">Total</p>
-
-                </div>
-                <p class="order-price">$ 560.00</p>
-            </div>
-
-            <button class="primary-button checkout-button">Checkout</button>
+  <body>
+    <aside class="ShoppingCart-product-detail">
+      <div class="ShoppingCart-order-container">
+        <div class="ShoppingCart-title-container">
+          <img class="ShoppingCart-arrow" src="./assets/icons/flechita.svg" alt="arrow" />
+          <h3 class="ShoppingCart-order-title">Shopping cart</h3>
         </div>
-    </aside>
-</body>
 
+        <div class="ShoppingCart-shopping-cart">
+          <img
+            src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""
+          />
+          <span class="ShoppingCart-product-name">Macbook Air</span>
+          <p class="ShoppingCart-product-price">$ 120,00</p>
+          <img
+            class="ShoppingCart-shopping-close"
+            src="./assets/icons/icon_close.png"
+            alt="close"
+          />
+        </div>
+
+        <div class="ShoppingCart-shopping-cart">
+          <img
+            src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""
+          />
+          <span class="ShoppingCart-product-name">Macbook Air</span>
+          <p class="ShoppingCart-product-price">$ 120,00</p>
+          <img
+            class="ShoppingCart-shopping-close"
+            src="./assets/icons/icon_close.png"
+            alt="close"
+          />
+        </div>
+
+        <div class="ShoppingCart-shopping-cart">
+          <img
+            src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt=""
+          />
+          <span class="ShoppingCart-product-name">Macbook Air</span>
+          <p class="ShoppingCart-product-price">$ 120,00</p>
+          <img
+            class="ShoppingCart-shopping-close"
+            src="./assets/icons/icon_close.png"
+            alt="close"
+          />
+        </div>
+
+        <div class="ShoppingCart-order-details">
+          <div>
+            <p class="ShoppingCart-order-date">Total</p>
+          </div>
+          <p class="ShoppingCart-order-price">$ 560.00</p>
+        </div>
+
+        <button class="ShoppingCart-primary-button ShoppingCart-checkout-button">Checkout</button>
+      </div>
+    </aside>
+  </body>
 </html>
